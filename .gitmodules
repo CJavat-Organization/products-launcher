@@ -1,3 +1,6 @@
 [submodule "products-ms"]
 	path = products-ms
 	url = https://github.com/CJavat-Organization/products-microservice.git
+[submodule "client-gateway"]
+	path = client-gateway
+	url = https://github.com/CJavat-Organization/client-gateway.git
