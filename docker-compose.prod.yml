@@ -9,7 +9,7 @@ services:
     build:
       context: ./client-gateway
       dockerfile: Dockerfile.prod
-    image: client-gateway-prod
+    image: us-west4-docker.pkg.dev/tienda-microservices-430113/image-registry/client-gateway
     ports:
       - ${CLIENT_GATEWAY_PORT}:${CLIENT_GATEWAY_PORT}
     environment:
@@ -21,7 +21,7 @@ services:
     build:
       context: ./auth-ms
       dockerfile: Dockerfile.prod
-    image: auth-ms
+    image: us-west4-docker.pkg.dev/tienda-microservices-430113/image-registry/auth-ms
     restart: always
     environment:
       - PORT=3000
@@ -34,7 +34,7 @@ services:
     build:
       context: ./products-ms
       dockerfile: Dockerfile.prod
-    image: products-ms
+    image: us-west4-docker.pkg.dev/tienda-microservices-430113/image-registry/products-ms
     environment:
       - PORT=3000
       - NATS_SERVERS=nats://nats-server:4222
@@ -48,7 +48,7 @@ services:
       args:
         - ORDERS_DATABASE_URL=${ORDERS_DATABASE_URL}
     restart: always
-    image: orders-ms
+    image: us-west4-docker.pkg.dev/tienda-microservices-430113/image-registry/orders-ms
     environment:
       - PORT=3000
       - NATS_SERVERS=nats://nats-server:4222
@@ -59,7 +59,7 @@ services:
     build:
       context: ./payments-ms
       dockerfile: Dockerfile.prod
-    image: payments-ms
+    image: us-west4-docker.pkg.dev/tienda-microservices-430113/image-registry/payments-ms
     restart: always
     ports:
       - ${PAYMENTS_MS_PORT}:${PAYMENTS_MS_PORT}
